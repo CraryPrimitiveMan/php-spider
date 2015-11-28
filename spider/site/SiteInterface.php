@@ -1,11 +1,11 @@
 <?php
-namespace spider;
+namespace spider\site;
 
 interface SiteInterface
 {
-    public function setStartUrl($url);
+    public function setCurrentUrl($url);
 
-    public function nextUrl($url);
+    public function nextUrl();
 
     public function crawlUrl();
 }

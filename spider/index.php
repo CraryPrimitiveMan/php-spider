@@ -1,9 +1,9 @@
 <?php
 require(__DIR__ . '/../vendor/autoload.php');
+require(__DIR__ . '/Application.php');
 
-$html = Requests::get('https://github.com/CraryPrimitiveMan');
-$doc = phpQuery::newDocument($html->body);
-//$('[itemprop=worksFor]').text()
-foreach ($doc['.repo'] as $key => $value) {
-    var_dump($value->nodeValue);
-}
+$config = array_merge(
+    require(__DIR__ . '/config/main.php'),
+    $argv
+);
+(new Application($config))->run();
